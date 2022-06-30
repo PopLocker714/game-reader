@@ -1,7 +1,8 @@
 
 import StatusBar from './StatusBar'
-import DialogList from './DialogList'
-import json from '../assets/data/script-dialogs-part1.json'
+// import DialogList from './DialogList'
+import ReaderData from './ReaderData'
+import jsonPart1 from '../assets/data/part-1.json'
 
 export default class Game {
   constructor(options) {
@@ -9,22 +10,11 @@ export default class Game {
   }
 
   run() {
-    const statusBar = new StatusBar({container: this.container})
-    const dialogList = new DialogList({container: document.querySelector('.list_dialog'), data: json})
-
-    const html = `
-    <div class="dialog_wrapp">
-      <p class="dialog_text">Text for dialog as a fa asf afad  fasdsdf  a ssfas fs dfafdas d</p>
-    </div>
-    `
-
-
+    const statusBar  = new StatusBar({container: this.container})
+    const readerData = new ReaderData({container: document.querySelector('.list_dialog')})
+    
     statusBar.create()
-    dialogList.startPart(1)
-    // dialogList.start()
-    // this.container.append(itemDialog.start())
-    // this.container.append(item2Dialog.start())
-
+    readerData.read(jsonPart1)
 
   }
 
